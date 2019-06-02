@@ -2,20 +2,20 @@ import 'package:fireflutter/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
 
 enum AuthOptions {
-  google,
+  Google,
   email,
   phone,
   anonymously,
-  github,
-  facebook,
-  twitter
+  Github,
+  Facebook,
+  Twitter
 }
 
 class AuthPage extends StatelessWidget {
   List<Widget> _returnAuthOptions() {
     List<Widget> allButtons = <Widget>[];
     AuthOptions.values.forEach((AuthOptions value) {
-      allButtons.add(AuthButton(value));
+      allButtons.add(AuthButton(value.toString().split(".").last));
     });
     return allButtons;
   }
@@ -26,6 +26,7 @@ class AuthPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: _returnAuthOptions(),
         ),
       ),

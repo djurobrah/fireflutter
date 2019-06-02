@@ -1,15 +1,14 @@
-import 'package:fireflutter/pages/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
+  final String authOption;
 
-  final AuthOptions value;
-
-  AuthButton(this.value);
+  AuthButton(this.authOption);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 5),
       width: 260,
       height: 40,
       child: RaisedButton(
@@ -17,12 +16,9 @@ class AuthButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image.asset(
-              "assets/glogo.png",
-              width: 25,
-            ),
+            _getAuthIcon(),
             SizedBox(width: 20),
-            Expanded(child: Center(child: Text(value.toString()))),
+            Expanded(child: Center(child: Text("Sign in with " + authOption))),
           ],
         ),
         onPressed: () {
@@ -30,6 +26,53 @@ class AuthButton extends StatelessWidget {
           //pushReplacementNamed needed
         },
       ),
+    );
+  }
+
+  Widget _getAuthIcon() {
+    String imagePath;
+
+    switch (authOption) {
+      case "Google":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+      case "email":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+      case "phone":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+      case "anonymously":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+      case "Github":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+      case "Facebook":
+        {
+          imagePath = "assets/authIcons/facebook.png";
+        }
+        break;
+      case "Twitter":
+        {
+          imagePath = "assets/authIcons/google.png";
+        }
+        break;
+    }
+
+    return Image.asset(
+      imagePath,
+      width: 25,
     );
   }
 }
