@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "466510466033",
+    "firebase_url": "https://djurobrah-fireflutter.firebaseio.com",
+    "project_id": "djurobrah-fireflutter",
+    "storage_bucket": "djurobrah-fireflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466510466033:android:7d3aca197f04344c",
+        "android_client_info": {
+          "package_name": "com.example.fireflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466510466033-3s7o8q64qh774aolfidcc9phgscrj8p9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fireflutter",
+            "certificate_hash": "8ff6d5da6178c5326a5c8f9c41c818db9b99f357"
+          }
+        },
+        {
+          "client_id": "466510466033-bucfukt9l5jl0s994lvd1udtn2ctd82k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPM-8qty42ncuEwwVCVpvll-S_7njrkFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466510466033-bucfukt9l5jl0s994lvd1udtn2ctd82k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
