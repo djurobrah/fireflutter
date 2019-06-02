@@ -40,22 +40,22 @@ class AuthButton extends StatelessWidget {
         break;
       case "email":
         {
-          imagePath = "assets/authIcons/google.png";
+          imagePath = "assets/authIcons/email.png";
         }
         break;
       case "phone":
         {
-          imagePath = "assets/authIcons/google.png";
+          imagePath = "assets/authIcons/phone.png";
         }
         break;
       case "anonymously":
         {
-          imagePath = "assets/authIcons/google.png";
+          imagePath = "assets/authIcons/anonymous.png";
         }
         break;
       case "Github":
         {
-          imagePath = "assets/authIcons/google.png";
+          imagePath = "assets/authIcons/github.png";
         }
         break;
       case "Facebook":
@@ -65,7 +65,7 @@ class AuthButton extends StatelessWidget {
         break;
       case "Twitter":
         {
-          imagePath = "assets/authIcons/google.png";
+          imagePath = "assets/authIcons/twitter.png";
         }
         break;
     }
