@@ -46,13 +46,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/authIcons/anonymous.png
+    - assets/authIcons/anonymously.png
     - assets/authIcons/email.png
-    - assets/authIcons/facebook.png
-    - assets/authIcons/github.png
-    - assets/authIcons/google.png
+    - assets/authIcons/Facebook.png
+    - assets/authIcons/Github.png
+    - assets/authIcons/Google.png
     - assets/authIcons/phone.png
-    - assets/authIcons/twitter.png
+    - assets/authIcons/Twitter.png
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

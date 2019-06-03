@@ -18,7 +18,7 @@ class AuthButton extends StatelessWidget {
           children: <Widget>[
             _getAuthIcon(),
             SizedBox(width: 20),
-            Expanded(child: Center(child: Text("Sign in with " + authOption))),
+            Expanded(child: Center(child: Text(_getButtonText()))),
           ],
         ),
         onPressed: () {
@@ -30,49 +30,18 @@ class AuthButton extends StatelessWidget {
   }
 
   Widget _getAuthIcon() {
-    String imagePath;
-
-    switch (authOption) {
-      case "Google":
-        {
-          imagePath = "assets/authIcons/google.png";
-        }
-        break;
-      case "email":
-        {
-          imagePath = "assets/authIcons/email.png";
-        }
-        break;
-      case "phone":
-        {
-          imagePath = "assets/authIcons/phone.png";
-        }
-        break;
-      case "anonymously":
-        {
-          imagePath = "assets/authIcons/anonymous.png";
-        }
-        break;
-      case "Github":
-        {
-          imagePath = "assets/authIcons/github.png";
-        }
-        break;
-      case "Facebook":
-        {
-          imagePath = "assets/authIcons/facebook.png";
-        }
-        break;
-      case "Twitter":
-        {
-          imagePath = "assets/authIcons/twitter.png";
-        }
-        break;
-    }
-
     return Image.asset(
-      imagePath,
+      "assets/authIcons/" + authOption + ".png",
       width: 25,
     );
+  }
+  
+  String _getButtonText()
+  {
+    if(authOption == "anonymously")
+    {
+      return "Sign in " + authOption;
+    }
+    return "Sign in with " + authOption;
   }
 }
