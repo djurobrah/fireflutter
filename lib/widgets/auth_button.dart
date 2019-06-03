@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
   final String authOption;
+  final Function signIn;
 
-  AuthButton(this.authOption);
+  AuthButton(this.authOption, this.signIn);
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
       width: 260,
@@ -22,8 +24,7 @@ class AuthButton extends StatelessWidget {
           ],
         ),
         onPressed: () {
-          Navigator.pushNamed(context, "/conversations");
-          //pushReplacementNamed needed
+          signIn(context);
         },
       ),
     );
@@ -35,11 +36,9 @@ class AuthButton extends StatelessWidget {
       width: 25,
     );
   }
-  
-  String _getButtonText()
-  {
-    if(authOption == "anonymously")
-    {
+
+  String _getButtonText() {
+    if (authOption == "anonymously") {
       return "Sign in " + authOption;
     }
     return "Sign in with " + authOption;

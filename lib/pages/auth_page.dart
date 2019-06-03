@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fireflutter/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum AuthOptions {
   Google,
@@ -12,24 +14,34 @@ enum AuthOptions {
 }
 
 class AuthPage extends StatelessWidget {
-  List<Widget> _returnAuthOptions() {
-    List<Widget> allButtons = <Widget>[];
-    AuthOptions.values.forEach((AuthOptions value) {
-      allButtons.add(AuthButton(value.toString().split(".").last));
-    });
-    return allButtons;
-  }
+  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    _returnAuthOptions();
+    var user = Provider.of<FirebaseUser>(context);
+
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: _returnAuthOptions(),
+          children: _returnAuthOptions(context),
         ),
       ),
     );
   }
+  
+  void signIn(BuildContext context)
+  {
+    FirebaseAuth.instance.signInAnonymously();
+    Navigator.pushNamed(context, "/conversations");
+  }
+  
+  List<Widget> _returnAuthOptions(BuildContext context) {
+    List<Widget> allButtons = <Widget>[];
+    AuthOptions.values.forEach((AuthOptions value) {
+      allButtons.add(AuthButton(value.toString().split(".").last, signIn));
+    });
+    return allButtons;
+  }
+  
 }
