@@ -10,10 +10,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        StreamProvider<FirebaseUser>.value(stream: FirebaseAuth.instance.onAuthStateChanged)
-      ],
+    return StreamProvider<FirebaseUser>.value(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
       child: MaterialApp(
         title: 'FlutterFire practice',
         theme: ThemeData(

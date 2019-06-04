@@ -18,8 +18,6 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<FirebaseUser>(context);
-
     return Scaffold(
       body: Center(
         child: Column(
@@ -29,13 +27,12 @@ class AuthPage extends StatelessWidget {
       ),
     );
   }
-  
-  void signIn(BuildContext context)
-  {
+
+  void signIn(BuildContext context) {
     FirebaseAuth.instance.signInAnonymously();
     Navigator.pushNamed(context, "/conversations");
   }
-  
+
   List<Widget> _returnAuthOptions(BuildContext context) {
     List<Widget> allButtons = <Widget>[];
     AuthOptions.values.forEach((AuthOptions value) {
@@ -43,5 +40,4 @@ class AuthPage extends StatelessWidget {
     });
     return allButtons;
   }
-  
 }

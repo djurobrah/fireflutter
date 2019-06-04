@@ -8,7 +8,6 @@ class ConversationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<FirebaseUser>(context);
-    bool loggedIn = user != null;
 
     return Scaffold(
       body: Center(
