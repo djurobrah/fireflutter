@@ -1,31 +1,32 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fireflutter/models/database_service.dart';
 import 'package:provider/provider.dart';
 
+import 'package:fireflutter/models/message.dart';
+
 class ConversationsPage extends StatelessWidget {
-  final auth = FirebaseAuth.instance;
+  final db = DatabaseService();
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<FirebaseUser>(context);
+    return StreamProvider<List<Message>>.value(
+      stream: db.streamMessages(),
+      child: Conversations(),
+    );
+  }
+}
 
+class Conversations extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var messages = Provider.of<List<Message>>(context);
+    Widget content = CircularProgressIndicator();
+    if (messages != null) {
+      content = Text(messages.length.toString());
+    }
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Conversations page..." + user.toString(),
-              style: TextStyle(fontSize: 25),
-            ),
-            RaisedButton(
-              child: Text("Log out"),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        child: content,
       ),
     );
   }

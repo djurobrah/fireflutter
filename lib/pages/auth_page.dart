@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fireflutter/widgets/auth_button.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 enum AuthOptions {
   Google,
@@ -14,8 +13,6 @@ enum AuthOptions {
 }
 
 class AuthPage extends StatelessWidget {
-  final auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

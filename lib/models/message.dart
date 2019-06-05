@@ -7,9 +7,9 @@ class Message {
 
   factory Message.fromMap(Map data) {
     return Message(
-      text: data['text'],
-      sender: data['sender'],
-      timeSent: data['timeSent'],
+      text: data['text'] ?? '',
+      sender: data['sender'] ?? '',
+      timeSent: data['timeSent'] ?? DateTime.now(),
     );
   }
 }

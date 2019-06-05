@@ -12,20 +12,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<FirebaseUser>.value(
       stream: FirebaseAuth.instance.onAuthStateChanged,
-      child: MaterialApp(
-        title: 'FlutterFire practice',
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.amber,
-          buttonTheme: ButtonThemeData(
-              buttonColor: Colors.amberAccent,
-              textTheme: ButtonTextTheme.primary),
-        ),
-        home: AuthPage(),
-        routes: <String, WidgetBuilder>{
-          '/conversations': (BuildContext context) => ConversationsPage(),
-        },
+      child: _buildMaterialApp(),
+    );
+  }
+
+  Widget _buildMaterialApp() {
+    return MaterialApp(
+      title: 'FlutterFire practice',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.amber,
+        buttonTheme: ButtonThemeData(
+            buttonColor: Colors.amberAccent,
+            textTheme: ButtonTextTheme.primary),
       ),
+      home: AuthPage(),
+      routes: <String, WidgetBuilder>{
+        '/conversations': (BuildContext context) => ConversationsPage(),
+      },
     );
   }
 }
